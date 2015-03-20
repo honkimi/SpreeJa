@@ -1,0 +1,2 @@
+#Devise.secret_key = "eccde48422cfd7386426b84fefee2040443cc5119fe2f636f919da65d48c7445ad061d9e92d5b0721c2091b8ffe744938641"
+Devise.secret_key = SecureRandom.hex(50)
