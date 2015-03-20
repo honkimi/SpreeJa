@@ -155,6 +155,21 @@ ja:
       spree/zone:
         description: "説明"
         name: "名前"
+      spree/page:
+        body: Body
+        foreign_link: "外部URL"
+        layout: Layout
+        meta_description: "メタ説明"
+        meta_keywords: "メタキーワード"
+        meta_title: "メタタイトル"
+        position: "位置" 
+        render_layout_as_partial: "部分的なレイアウトとして表示"
+        show_in_footer: "フッターに表示"
+        show_in_header: "ヘッダーに表示"
+        show_in_sidebar: "サイドバーに表示"
+        slug: "パス(url)"
+        title: "タイトル"
+        visible: "表示"
     models:
       spree/address:
         one: "住所"
@@ -270,6 +285,9 @@ ja:
       spree/zone:
         one: "ゾーン"
         other: "ゾーン"
+      spree/page:
+        one: "特集ページ"
+        other: "特集ページ"
     errors:
       models:
         spree/calculator/tiered_flat_rate:
@@ -454,7 +472,7 @@ ja:
     analytics_desc_list_2: "アカウントをアクティブにするには無料のSpreeアカウントが必要です。"
     analytics_desc_list_3: "インストールにコードは必要ありません。"
     analytics_desc_list_4: "すべては無料です！"
-    analytics_trackers: "アナリティクストラッカー"
+    analytics_trackers: "Google アナリティクス"
     and: "と"
     approve: "承認"
     approver: "承認者"
@@ -636,7 +654,7 @@ ja:
         no_user_specified: "このクーポンコードを適用する前にログインする必要があります。"
         not_first_order: "このクーポンコードは最初の注文にのみ適用できます。"
     email: Eメール
-    empty: "空です"
+    empty: "空"
     empty_cart: "カートを空にする"
     enable_mail_delivery: "メールによるお知らせを有効にする/許可する"
     end: "終わり"
@@ -693,8 +711,8 @@ ja:
     gateway_error: "ゲートウェイエラー"
     general: "一般"
     general_settings: "一般設定"
-    google_analytics: Googleアナリティクス
-    google_analytics_id: "アナリティクスID"
+    google_analytics: "Googleアナリティクス"
+    google_analytics_id: "Google アナリティクス ID"
     guest_checkout: "ゲスト注文"
     guest_user_account: "登録せずにゲストとして注文する"
     has_no_shipped_units: "の発送済みユニットはありません"
@@ -837,7 +855,7 @@ ja:
     new_tax_rate: "新規税率"
     new_taxon: "新規ジャンル単位"
     new_taxonomy: "新規ジャンルツリー"
-    new_tracker: "新規トラッカー"
+    new_tracker: "新規アナリティクス"
     new_user: "新規ユーザー"
     new_variant: "新規種類"
     new_zone: "新規ゾーン"
@@ -1379,4 +1397,8 @@ ja:
     zipcode: "郵便番号コード"
     zone: "ゾーン"
     zones: "ゾーン"
+    pages: "特集"
+    static_content:
+      link: "特集ページ"
+      new_page: "新規ページ"
 

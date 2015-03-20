@@ -1,5 +1,5 @@
 ## Spree for Japanese
-Japanese-localised Spree template.
+Japanese-localized Spree template.
 
 ## Installation
 
@@ -7,4 +7,94 @@ Japanese-localised Spree template.
 git clone this
 cd spreeja
 bundle install
+bundle exec rake db:migrate
+bundle exec rake db:seed
 ```
+
+## How to update
+
+#### Assets (Image, CSS, JavaScript)
+
+modify `vendor/assets/`! 
+
+#### View (Only HTML)
+##### HTMLで全部上書き
+
+Spree の本家コードから修正したいviewの場所を特定。
+
+例えば`frontend/app/views/spree/shared/_header.html.erb` を編集したい場合、`app/views/spree/shared/_header.html.erb`を作成し、編集する。
+
+ただし、このやり方は Spree を常に最新にする場合に古いままのHTMLが使われ続けた状態になってしまうのが問題。
+
+##### Deface で追加
+
+`app/overrides` 以下に Ruby ファイルを追加。こんな感じで書ける
+
+`replace_header_logo.rb`
+
+```
+Deface::Override.new(:virtual_path => 'spree/shared/_header',
+  :name => 'replace_header_logo',
+  :replace_contents => "#logo",   
+  :text => "
+    <%= image_path 'logo.png', :alt => 'Logo' %>
+  ")
+```
+
+### Controller
+`class_eval`でデコレートすることで既存コントローラに追加する。
+
+`app/controllers/spree/home_controller_decorator.rb`を作成
+
+```
+module Spree
+  HomeController.class_eval do
+    respond_override :index => { :html =>
+      { :success => lambda { render 'shared/some_file' } } }
+
+    def sale
+      @products = Product.joins(:variants_including_master).where('spree_variants.sale_price is not null').uniq
+    end
+  end
+end
+```
+
+`respond_override` は既存のアクションの表示を変えたい時に利用。 `sale` は新規ページ。config/routes にルーティング設定が必要
+
+### Model
+Migration が必要なレベルの開発は、 [Spree エクステンションとして開発](http://dev.yukashikado.co.jp/post/55659922874/spree-2-2)すべき。
+
+既存のモデル機能拡張には Decorator を用いる。
+
+`Papp/models/spree/product_decorator.rb`
+
+```
+module Spree
+  Product.class_eval do
+    alias_method :orig_price_in, :price_in
+    def price_in(currency)
+      return orig_price_in(currency) unless sale_price.present?
+      Spree::Price.new(:variant_id => self.id, :amount => self.sale_price, :currency => currency)
+    end
+  end
+end
+```
+
+メソッドを別名定義しつつ、機能拡張したメソッドで定義元メソッドを呼び出す。
+
+## 特集ページ
+admin設定の特集ページより
+
+- layout は `layouts/static_page_layout` を指定。
+- `STORES`の項目のみチェック
+- header へ表示も使える
+
+## 支払い方法
+プロバイダーに `Webpay` 指定可能。
+
+## TODO
+
+- AWS(S3)
+- Deploy
+- Email, Email test
+
