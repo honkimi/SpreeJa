@@ -15,7 +15,7 @@ bundle exec rake db:seed
 
 #### Assets (Image, CSS, JavaScript)
 
-modify `vendor/assets/`! 
+`vendor/assets/`を修正 
 
 #### View (Only HTML)
 ##### HTMLで全部上書き
@@ -85,16 +85,41 @@ end
 ## 特集ページ
 admin設定の特集ページより
 
-- layout は `layouts/static_page_layout` を指定。
 - `STORES`の項目のみチェック
 - header へ表示も使える
 
-## 支払い方法
-プロバイダーに `Webpay` 指定可能。
+## AWS(S3)
+
+```
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export AWS_S3_BUCKET=
+```
+
+## Email
+設定のメール設定.Gmail で送ってみたい場合
+
+- smtp.gmail.com
+- smtp.gmail.com
+- 587
+- TLS
+- plain
+- gmail address
+- gmail password
 
 ## TODO
 
-- AWS(S3)
-- Deploy
-- Email, Email test
+- Deploy issue (Heroku & SSL)
+- 特商法関連の精査
+
+## Memo
+[Spree Contrib](https://github.com/spree-contrib) で 3-0-stable ブランチが出るの待ち
+
+- [spree_comments](https://github.com/spree-contrib/spree_comments)
+- [spree_editor](https://github.com/spree-contrib/spree_editor)
+- [spree_sitemap](https://github.com/spree-contrib/spree_sitemap)
+- [spree_social_products](https://github.com/spree-contrib/spree_social_products)
+- [spree_recently_viewed](https://github.com/spree-contrib/spree_recently_viewed)
+- [spree_reviews](https://github.com/spree-contrib/spree_reviews)
+- [spree_related_products](https://github.com/spree-contrib/spree_related_products)
 

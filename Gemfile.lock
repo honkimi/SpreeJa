@@ -8,6 +8,14 @@ GIT
       webpay (~> 3.1)
 
 GIT
+  remote: git://github.com/spree-contrib/spree_mail_settings.git
+  revision: f8824df89530c1da1c8669ec5292ae7a4e6e79b8
+  branch: 3-0-stable
+  specs:
+    spree_mail_settings (2.2.0)
+      spree_backend (~> 3.0.0.rc2)
+
+GIT
   remote: git://github.com/spree-contrib/spree_static_content.git
   revision: 035f85a4a4a08ee03331e7bb7100c27d99940186
   branch: 3-0-stable
@@ -99,6 +107,12 @@ GEM
       json
     awesome_nested_set (3.0.2)
       activerecord (>= 4.0.0, < 5)
+    awesome_print (1.6.1)
+    aws-sdk (1.63.0)
+      aws-sdk-v1 (= 1.63.0)
+    aws-sdk-v1 (1.63.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -119,6 +133,7 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -187,6 +202,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
@@ -216,6 +232,14 @@ GEM
     premailer-rails (1.8.0)
       actionmailer (>= 3, < 5)
       premailer (~> 1.7, >= 1.7.9)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rails (0.3.3)
+      pry (>= 0.9.10)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rabl (0.9.4.pre1)
       activesupport (>= 2.3.14)
     rack (1.6.0)
@@ -272,6 +296,7 @@ GEM
       rdoc (~> 4.0)
     select2-rails (3.5.9.1)
       thor (~> 0.14)
+    slop (3.6.0)
     spree (3.0.0)
       spree_api (= 3.0.0)
       spree_backend (= 3.0.0)
@@ -385,10 +410,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
+  aws-sdk (~> 1)
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  pry-rails
+  quiet_assets
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -396,6 +425,7 @@ DEPENDENCIES
   spree_auth_devise!
   spree_gateway!
   spree_i18n!
+  spree_mail_settings!
   spree_static_content!
   spree_webpay!
   spring
