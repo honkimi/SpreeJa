@@ -15,7 +15,7 @@ bundle exec rake db:seed
 
 #### Assets (Image, CSS, JavaScript)
 
-modify `vendor/assets/`! 
+`vendor/assets/`を修正 
 
 #### View (Only HTML)
 ##### HTMLで全部上書き
@@ -89,12 +89,26 @@ admin設定の特集ページより
 - `STORES`の項目のみチェック
 - header へ表示も使える
 
-## 支払い方法
-プロバイダーに `Webpay` 指定可能。
+## AWS(S3)
+
+```
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export AWS_S3_BUCKET=
+```
+
+## Email
+設定のメール設定.Gmail で送ってみたい場合
+
+- smtp.gmail.com
+- smtp.gmail.com
+- 587
+- TLS
+- plain
+- gmail address
+- gmail password
 
 ## TODO
 
-- AWS(S3)
 - Deploy
-- Email, Email test
 

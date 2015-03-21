@@ -16,4 +16,4 @@
 !/log/.keep
 /tmp
 
-howto.txt
+.env.sh
