@@ -85,7 +85,6 @@ end
 ## 特集ページ
 admin設定の特集ページより
 
-- layout は `layouts/static_page_layout` を指定。
 - `STORES`の項目のみチェック
 - header へ表示も使える
 

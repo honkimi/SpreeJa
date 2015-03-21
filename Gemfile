@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
+
 gem 'rails', '4.2.0'
 
 gem 'sqlite3'
@@ -13,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do
   gem 'unicorn'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
